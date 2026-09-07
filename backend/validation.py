@@ -11,10 +11,7 @@ def normalize_domain(value: str) -> str:
     if '://' in value:
         parsed = urlparse(value)
         value = parsed.hostname or ''
-    value = value.rstrip('.').strip()
-    if value.startswith('www.'):
-        value = value[4:]
-    return value
+    return value.rstrip('.').strip()
 
 
 def is_valid_domain(domain: str) -> bool:
