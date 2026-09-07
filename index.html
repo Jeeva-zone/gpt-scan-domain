@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f1117" />
+    <meta name="description" content="Passive Certificate Transparency subdomain discovery with Cloudflare IP classification." />
+    <title>Orange Test — Cloudflare Subdomain Scanner</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar"><div class="brand"><span class="brand-orb" aria-hidden="true">🟠</span><div><div class="brand-title">Orange Test</div><div class="brand-caption">Passive domain intelligence</div></div></div><div class="topbar-chip">No port scanning · No exploitation</div></header>
+      <main class="container">
+        <section class="hero"><div class="eyebrow"><span class="pulse-dot"></span> CLOUDFLARE-FOCUSED DISCOVERY</div><h1>Find Cloudflare-hosted <span>subdomains</span></h1><p>Discover hostnames through Certificate Transparency, resolve DNS records server-side, and keep only IPs inside Cloudflare’s current published ranges.</p></section>
+        <section class="panel scan-panel" aria-label="Domain scan"><div class="panel-header"><div><h2>Start a scan</h2><p>Use this tool only on domains you own or are authorized to assess.</p></div><div id="statusBadge" class="status-badge ready" aria-live="polite">Ready</div></div><form id="scanForm"><label for="domain">Root domain</label><div class="input-row"><input id="domain" name="domain" placeholder="Enter a domain, for example speedtest.net" autocomplete="off" spellcheck="false" aria-describedby="domain-help domain-error" /><button id="scanButton" class="primary" type="submit"><span>🟠</span> Start Orange Test</button><button id="cancelButton" class="secondary hidden" type="button">Cancel Scan</button></div><div id="domain-help" class="field-help">Enter a registrable root domain without a path or port.</div><div id="domain-error" class="field-error" role="alert"></div></form><div class="progress-area" aria-live="polite"><div id="progressLine" class="progress-line hidden"><div class="spinner"></div><span id="progressText">Connecting</span></div><div id="successLine" class="success-line hidden">✓ Scan complete — only Cloudflare records are shown.</div></div></section>
+        <section id="resultsPanel" class="panel results-panel hidden" aria-labelledby="results-title"><div class="panel-header results-heading"><div><h2 id="results-title">Cloudflare results</h2><p>Verified against the current official Cloudflare IP ranges.</p></div><div class="result-count"><strong id="resultCount">0</strong><span>orange records</span></div></div><div class="metrics"><div><span>Domain</span><strong id="metricDomain">—</strong></div><div><span>Duration</span><strong id="metricDuration">—</strong></div><div><span>Discovery</span><strong>crt.sh</strong></div></div><div id="resultsBox" class="results-box"></div><div class="actions"><button id="copyButton" type="button" class="secondary" disabled>Copy Results</button><button id="csvButton" type="button" class="secondary" disabled>Download CSV</button><button id="clearButton" type="button" class="ghost">Clear</button></div></section>
+        <section class="grid-two"><article class="panel help-panel"><div class="section-kicker">How discovery works</div><h2>Passive by design</h2><p>Orange Test queries <strong>crt.sh</strong> from the backend, normalizes certificate names, then resolves A and AAAA records with a capped DNS worker pool. It never probes ports, sends HTTP checks, or attempts authentication.</p><div class="flow"><span>Certificate Transparency</span><b>→</b><span>DNS A / AAAA</span><b>→</b><span>Cloudflare CIDR match</span></div></article><article class="panel help-panel"><div class="section-kicker">Coverage note</div><h2>CT is not a DNS inventory</h2><p>Certificate Transparency records can miss valid subdomains that have no matching certificate history. The first version intentionally avoids brute-force wordlists.</p><div class="mini-note">🛡️ Only scan domains you own or are authorized to assess.</div></article></section>
+        <footer class="footer"><span>Orange Test · Built for authorized passive research</span><span>Orange Test <b>v1</b> · More tools coming soon</span></footer>
+      </main>
+    </div><script src="/app.js" defer></script>
+  </body>
+</html>
