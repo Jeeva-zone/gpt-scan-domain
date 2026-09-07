@@ -107,3 +107,5 @@ Only scan systems you are authorized to assess. Orange Test is designed for pass
 ## 📜 License
 
 MIT — see `LICENSE`.
+
+<!-- CI TRIGGER: verify latest validation fix -->
